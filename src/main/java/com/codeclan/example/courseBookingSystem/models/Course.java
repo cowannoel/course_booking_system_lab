@@ -1,6 +1,8 @@
 package com.codeclan.example.courseBookingSystem.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +24,11 @@ public class Course {
     @Column
     private int starRating;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    public Course(String name, String town, int starRating, Booking bookings) {
+    public Course(String name, String town, int starRating) {
         this.name = name;
         this.town = town;
         this.starRating = starRating;
