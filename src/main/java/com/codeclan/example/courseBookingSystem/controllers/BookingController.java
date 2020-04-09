@@ -30,7 +30,7 @@ public class BookingController {
             return new ResponseEntity(bookingRepository.findByDate(date), HttpStatus.OK);
         }
         if (courseName != null) {
-            return new ResponseEntity(bookingRepository.findByCourse(courseName), HttpStatus.OK);
+            return new ResponseEntity(bookingRepository.findByCourseName(courseName), HttpStatus.OK);
         }
         if (customerName != null && courseName != null) {
             List<Booking> foundBooking = bookingRepository.findByCustomerNameAndCourseNameIgnoreCase(customerName, courseName);
